@@ -4,38 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wondimagegn Zewudu - Galaxy Portfolio</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            overflow: auto;
-            height: 100%;
-            background: #000; /* Fallback background color */
-        }
-        canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -1; /* Galaxy as background */
-        }
-        .content {
-            position: relative;
-            z-index: 1; /* Content above galaxy */
-            color: white;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-        }
-        .container { max-width: 1200px; margin: 0 auto; }
-        header img { border-radius: 50%; width: 150px; height: 150px; }
-        nav ul { list-style: none; padding: 0; }
-        nav ul li { display: inline; margin-right: 20px; }
-        nav ul li a { color: white; text-decoration: none; }
-        section { margin: 40px 0; }
-        .project { margin: 20px 0; }
-        footer { text-align: center; padding: 20px; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="canvas-container"></div> <!-- Container for Three.js canvas -->
     <div class="content">
         <header>
             <div class="container">
@@ -55,8 +27,12 @@
 
         <section id="about" class="container">
             <h2>About Me</h2>
-            <p>I have a solid background spanning 6+ years in project management and web development...</p>
-            <p>My academic background includes a Master's degree in Computer Science and Engineering...</p>
+            <p>
+                I have a solid background spanning 6+ years in project management and web development...
+            </p>
+            <p>
+                My academic background includes a Master's degree in Computer Science and Engineering...
+            </p>
         </section>
 
         <section id="projects" class="container">

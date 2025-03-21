@@ -1,67 +1,61 @@
-// Ensure Three.js is loaded
-if (typeof THREE === 'undefined') {
-    console.error('Three.js is not loaded. Check the script source.');
-} else {
-    // Scene Setup
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    document.body.appendChild(renderer.domElement);
+// Scene, Camera, Renderer
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ alpha: true }); // Transparent background
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.getElementById('canvas-container').appendChild(renderer.domElement); // Append to specific container
 
-    // Galaxy Particles
-    const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 10000; // Increased for a denser galaxy
-    const posArray = new Float32Array(particlesCount * 3);
-    const colors = new Float32Array(particlesCount * 3); // For color variation
+// Galaxy Parameters
+const particlesCount = 10000;
+const particlesGeometry = new THREE.BufferGeometry();
+const posArray = new Float32Array(particlesCount * 3);
+const colors = new Float32Array(particlesCount * 3); // For color variation
 
-    for (let i = 0; i < particlesCount * 3; i += 3) {
-        // Spiral galaxy shape
-        const radius = Math.random() * 10;
-        const angle = Math.random() * Math.PI * 2;
-        const x = Math.cos(angle) * radius + (Math.random() - 0.5) * 2;
-        const y = Math.sin(angle) * radius + (Math.random() - 0.5) * 2;
-        const z = (Math.random() - 0.5) * 2;
+for (let i = 0; i < particlesCount; i++) {
+    const i3 = i * 3;
+    // Spiral galaxy shape
+    const radius = Math.random() * 20;
+    const spinAngle = radius * 5 + Math.random() * Math.PI * 2;
+    const branchAngle = (i % 3) * (Math.PI * 2 / 3);
 
-        posArray[i] = x;
-        posArray[i + 1] = y;
-        posArray[i + 2] = z;
+    posArray[i3] = Math.cos(branchAngle + spinAngle) * radius + (Math.random() - 0.5) * 2;
+    posArray[i3 + 1] = (Math.random() - 0.5) * 5; // Height variation
+    posArray[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + (Math.random() - 0.5) * 2;
 
-        // Random colors for stars (white, blue, red hues)
-        colors[i] = Math.random() > 0.8 ? 1 : Math.random();     // R
-        colors[i + 1] = Math.random() > 0.8 ? 1 : Math.random(); // G
-        colors[i + 2] = Math.random() > 0.5 ? 1 : Math.random(); // B
-    }
-
-    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-    particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-    const particlesMaterial = new THREE.PointsMaterial({
-        size: 0.05,
-        vertexColors: true,
-        transparent: true,
-        blending: THREE.AdditiveBlending,
-    });
-
-    const galaxy = new THREE.Points(particlesGeometry, particlesMaterial);
-    scene.add(galaxy);
-
-    // Camera Position
-    camera.position.z = 15;
-
-    // Animation Loop
-    function animate() {
-        requestAnimationFrame(animate);
-        galaxy.rotation.y += 0.001; // Slow rotation for galaxy effect
-        renderer.render(scene, camera);
-    }
-    animate();
-
-    // Handle Window Resize
-    window.addEventListener('resize', () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-    });
+    // Color variation (nebula-like effect)
+    colors[i3] = Math.random() * 0.5 + 0.5; // Red
+    colors[i3 + 1] = Math.random() * 0.3 + 0.2; // Green
+    colors[i3 + 2] = Math.random() * 0.8 + 0.5; // Blue
 }
+
+particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+const particlesMaterial = new THREE.PointsMaterial({
+    size: 0.05,
+    vertexColors: true,
+    transparent: true,
+    blending: THREE.AdditiveBlending, // For a glowing effect
+});
+
+const galaxy = new THREE.Points(particlesGeometry, particlesMaterial);
+scene.add(galaxy);
+
+// Camera Position
+camera.position.set(0, 5, 15);
+camera.lookAt(0, 0, 0);
+
+// Animation
+function animate() {
+    requestAnimationFrame(animate);
+    galaxy.rotation.y += 0.002; // Slow rotation for galaxy
+    renderer.render(scene, camera);
+}
+animate();
+
+// Resize Handler
+window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+});
