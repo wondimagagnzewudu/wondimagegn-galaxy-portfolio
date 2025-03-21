@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wondimagegn Zewudu - Galaxy Portfolio</title>
+    <title>Wondimagegn Zewudu - Animated Galaxy Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="canvas-container"></div> <!-- Container for Three.js canvas -->
+    <div id="canvas-container"></div>
     <div class="content">
-        <header>
+        <header class="fade-in">
             <div class="container">
-                <img src="assets/profile.jpg" alt="Wondimagegn Zewudu" class="profile-img">
+                <img src="assets/profile.jpg" alt="Wondimagegn Zewudu" class="profile-img slide-in">
                 <h1>Wondimagegn Zewudu</h1>
                 <p>Senior Software Developer | Full Stack Developer | Cybersecurity Enthusiast</p>
                 <nav>
@@ -25,7 +26,7 @@
             </div>
         </header>
 
-        <section id="about" class="container">
+        <section id="about" class="container animate-section">
             <h2>About Me</h2>
             <p>
                 I have a solid background spanning 6+ years in project management and web development...
@@ -35,7 +36,7 @@
             </p>
         </section>
 
-        <section id="projects" class="container">
+        <section id="projects" class="container animate-section">
             <h2>Projects</h2>
             <div class="project">
                 <h3>Online Payment Management System</h3>
@@ -49,9 +50,9 @@
             </div>
         </section>
 
-        <section id="skills" class="container">
+        <section id="skills" class="container animate-section">
             <h2>Skills</h2>
-            <ul>
+            <ul class="skills-list">
                 <li>Node.js</li>
                 <li>React.js</li>
                 <li>Python</li>
@@ -62,7 +63,7 @@
             </ul>
         </section>
 
-        <section id="contact" class="container">
+        <section id="contact" class="container animate-section">
             <h2>Contact</h2>
             <p>Email: <a href="mailto:wondeis2018@gmail.com">wondeis2018@gmail.com</a></p>
             <p>Phone: <a href="tel:+251923704254">+251 923 704 254</a></p>
@@ -70,13 +71,13 @@
             <p>GitHub: <a href="https://github.com/wondimagagnzewudu/">wondimagagnzewudu</a></p>
         </section>
 
-        <footer>
+        <footer class="fade-in">
             <p>© 2025 Wondimagegn Zewudu. All rights reserved.</p>
         </footer>
     </div>
 
-    <!-- Three.js Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="scripts/galaxy.js"></script>
+    <script src="scripts/animations.js"></script>
 </body>
 </html>

@@ -3,8 +3,8 @@ body, html {
     padding: 0;
     overflow: auto;
     height: 100%;
-    font-family: 'Orbitron', sans-serif; /* Futuristic font */
-    background: radial-gradient(circle at center, #0a0a23, #000033); /* Cosmic gradient */
+    font-family: 'Orbitron', sans-serif;
+    background: radial-gradient(circle at center, #9d9dec, #191943);
     color: #e0e0ff;
 }
 
@@ -21,6 +21,28 @@ body, html {
     position: relative;
     z-index: 1;
     padding: 40px;
+}
+
+/* Fade-in animation for header and footer */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Slide-in animation for profile image */
+.slide-in {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideIn 1s ease-out 0.5s forwards;
+}
+
+@keyframes slideIn {
+    to { opacity: 1; transform: translateY(0); }
 }
 
 header {
@@ -92,6 +114,18 @@ section h2 {
     text-shadow: 0 0 8px #00d4ff;
 }
 
+/* Section animation */
+.animate-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .project {
     background: rgba(255, 255, 255, 0.05);
     padding: 20px;
@@ -113,6 +147,17 @@ section h2 {
 
 .project a:hover {
     color: #ff00ff;
+}
+
+/* Skills list animation */
+.skills-list li {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: skillSlide 0.5s ease-out forwards;
+}
+
+@keyframes skillSlide {
+    to { opacity: 1; transform: translateX(0); }
 }
 
 footer {

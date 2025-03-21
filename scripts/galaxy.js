@@ -1,59 +1,54 @@
-// Scene, Camera, Renderer
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ alpha: true }); // Transparent background
+const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
-document.getElementById('canvas-container').appendChild(renderer.domElement); // Append to specific container
+document.getElementById('canvas-container').appendChild(renderer.domElement);
 
-// Galaxy Parameters
-const particlesCount = 10000;
+// Galaxy Setup
+const particlesCount = 12000;
 const particlesGeometry = new THREE.BufferGeometry();
 const posArray = new Float32Array(particlesCount * 3);
-const colors = new Float32Array(particlesCount * 3); // For color variation
+const colors = new Float32Array(particlesCount * 3);
 
 for (let i = 0; i < particlesCount; i++) {
     const i3 = i * 3;
-    // Spiral galaxy shape
-    const radius = Math.random() * 20;
-    const spinAngle = radius * 5 + Math.random() * Math.PI * 2;
-    const branchAngle = (i % 3) * (Math.PI * 2 / 3);
+    const radius = Math.random() * 25;
+    const spinAngle = radius * 4 + Math.random() * Math.PI * 2;
+    const branchAngle = (i % 4) * (Math.PI * 2 / 4);
 
-    posArray[i3] = Math.cos(branchAngle + spinAngle) * radius + (Math.random() - 0.5) * 2;
-    posArray[i3 + 1] = (Math.random() - 0.5) * 5; // Height variation
-    posArray[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + (Math.random() - 0.5) * 2;
+    posArray[i3] = Math.cos(branchAngle + spinAngle) * radius + (Math.random() - 0.5) * 3;
+    posArray[i3 + 1] = (Math.random() - 0.5) * 6;
+    posArray[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + (Math.random() - 0.5) * 3;
 
-    // Color variation (nebula-like effect)
-    colors[i3] = Math.random() * 0.5 + 0.5; // Red
-    colors[i3 + 1] = Math.random() * 0.3 + 0.2; // Green
-    colors[i3 + 2] = Math.random() * 0.8 + 0.5; // Blue
+    colors[i3] = Math.random() * 0.6 + 0.4; // Red
+    colors[i3 + 1] = Math.random() * 0.4 + 0.2; // Green
+    colors[i3 + 2] = Math.random() * 0.9 + 0.5; // Blue
 }
 
 particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
 particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
 const particlesMaterial = new THREE.PointsMaterial({
-    size: 0.05,
+    size: 0.06,
     vertexColors: true,
     transparent: true,
-    blending: THREE.AdditiveBlending, // For a glowing effect
+    blending: THREE.AdditiveBlending,
 });
 
 const galaxy = new THREE.Points(particlesGeometry, particlesMaterial);
 scene.add(galaxy);
 
-// Camera Position
-camera.position.set(0, 5, 15);
+camera.position.set(0, 6, 20);
 camera.lookAt(0, 0, 0);
 
-// Animation
 function animate() {
     requestAnimationFrame(animate);
-    galaxy.rotation.y += 0.002; // Slow rotation for galaxy
+    galaxy.rotation.y += 0.0015;
+    galaxy.rotation.x += 0.0005;
     renderer.render(scene, camera);
 }
 animate();
 
-// Resize Handler
 window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
