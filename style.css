@@ -1,19 +1,23 @@
 body, html {
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow: auto; /* Allow scrolling */
     height: 100%;
     font-family: Arial, sans-serif;
-    color: #fff;
+    color: white; /* Ensure text is visible */
+}
+
+canvas {
+    position: fixed; /* Fix the canvas as the background */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Send the canvas to the background */
 }
 
 .content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1;
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    position: relative;
+    z-index: 1; /* Bring the content to the front */
+    padding: 20px;
 }
 
 header {
@@ -43,7 +47,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: white;
     text-decoration: none;
     font-weight: bold;
 }
@@ -59,7 +63,7 @@ section {
 }
 
 section h2 {
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid white;
     padding-bottom: 10px;
 }
 

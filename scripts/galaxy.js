@@ -11,7 +11,7 @@ const particlesCount = 5000;
 const posArray = new Float32Array(particlesCount * 3);
 
 for (let i = 0; i < particlesCount * 3; i++) {
-    posArray[i] = (Math.random() - 0.5) * 50; // Random positions for particles
+    posArray[i] = (Math.random() - 0.5) * 10; // Random positions for particles
 }
 
 particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));

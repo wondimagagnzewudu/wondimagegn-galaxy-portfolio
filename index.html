@@ -9,11 +9,20 @@
         body, html {
             margin: 0;
             padding: 0;
-            overflow: hidden;
+            overflow: auto; /* Allow scrolling */
             height: 100%;
         }
         canvas {
-            display: block;
+            position: fixed; /* Fix the canvas as the background */
+            top: 0;
+            left: 0;
+            z-index: -1; /* Send the canvas to the background */
+        }
+        .content {
+            position: relative;
+            z-index: 1; /* Bring the content to the front */
+            color: white; /* Ensure text is visible */
+            padding: 20px;
         }
     </style>
 </head>
@@ -50,7 +59,20 @@
             </p>
         </section>
 
-        
+        <section id="projects" class="container">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>Online Payment Management System</h3>
+                <p>Developed the front-end using React.js and React Native, and the back-end using Node.js and Express.</p>
+                <a href="projects/project1.html">View Project</a>
+            </div>
+            <div class="project">
+                <h3>2021 Ethiopian General Election Management System</h3>
+                <p>Worked as a backend developer using Django and front-end developer using React.js.</p>
+                <a href="projects/project2.html">View Project</a>
+            </div>
+            <!-- Add more projects here -->
+        </section>
 
         <section id="skills" class="container">
             <h2>Skills</h2>
@@ -74,7 +96,7 @@
         </section>
 
         <footer>
-            <p>&copy; 2023 Wondimagegn Zewudu. All rights reserved.</p>
+            <p>&copy; 2025 Wondimagegn Zewudu. All rights reserved.</p>
         </footer>
     </div>
 </body>
