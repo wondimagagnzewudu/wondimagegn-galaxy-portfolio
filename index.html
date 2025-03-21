@@ -4,34 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wondimagegn Zewudu - Galaxy Portfolio</title>
-    <link rel="stylesheet" href="style.css">
     <style>
         body, html {
             margin: 0;
             padding: 0;
-            overflow: auto; /* Allow scrolling */
+            overflow: auto;
             height: 100%;
+            background: #000; /* Fallback background color */
         }
         canvas {
-            position: fixed; /* Fix the canvas as the background */
+            position: fixed;
             top: 0;
             left: 0;
-            z-index: -1; /* Send the canvas to the background */
+            z-index: -1; /* Galaxy as background */
         }
         .content {
             position: relative;
-            z-index: 1; /* Bring the content to the front */
-            color: white; /* Ensure text is visible */
+            z-index: 1; /* Content above galaxy */
+            color: white;
             padding: 20px;
+            font-family: Arial, sans-serif;
         }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header img { border-radius: 50%; width: 150px; height: 150px; }
+        nav ul { list-style: none; padding: 0; }
+        nav ul li { display: inline; margin-right: 20px; }
+        nav ul li a { color: white; text-decoration: none; }
+        section { margin: 40px 0; }
+        .project { margin: 20px 0; }
+        footer { text-align: center; padding: 20px; }
     </style>
 </head>
 <body>
-    <!-- Three.js Galaxy Animation -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r146/three.min.js"></script>
-    <script src="scripts/galaxy.js"></script>
-
-    <!-- Portfolio Content -->
     <div class="content">
         <header>
             <div class="container">
@@ -51,27 +55,22 @@
 
         <section id="about" class="container">
             <h2>About Me</h2>
-            <p>
-                I have a solid background spanning 6+ years in project management and web development. I have honed my skills using popular technologies such as Node.js, React.js, and Python, as well as gained expertise in the field of cybersecurity.
-            </p>
-            <p>
-                My academic background includes a Master's degree in Computer Science and Engineering and a Bachelor's degree in Software Engineering, both from the Addis Ababa Science and Technology University (ASTU). Additionally, I have undergone specialized cybersecurity training via a scholarship program at Iserial, Ariel University.
-            </p>
+            <p>I have a solid background spanning 6+ years in project management and web development...</p>
+            <p>My academic background includes a Master's degree in Computer Science and Engineering...</p>
         </section>
 
         <section id="projects" class="container">
             <h2>Projects</h2>
             <div class="project">
                 <h3>Online Payment Management System</h3>
-                <p>Developed the front-end using React.js and React Native, and the back-end using Node.js and Express.</p>
+                <p>Developed the front-end using React.js and React Native...</p>
                 <a href="projects/project1.html">View Project</a>
             </div>
             <div class="project">
                 <h3>2021 Ethiopian General Election Management System</h3>
-                <p>Worked as a backend developer using Django and front-end developer using React.js.</p>
+                <p>Worked as a backend developer using Django...</p>
                 <a href="projects/project2.html">View Project</a>
             </div>
-            <!-- Add more projects here -->
         </section>
 
         <section id="skills" class="container">
@@ -96,8 +95,12 @@
         </section>
 
         <footer>
-            <p>&copy; 2025 Wondimagegn Zewudu. All rights reserved.</p>
+            <p>© 2025 Wondimagegn Zewudu. All rights reserved.</p>
         </footer>
     </div>
+
+    <!-- Three.js Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="scripts/galaxy.js"></script>
 </body>
 </html>
