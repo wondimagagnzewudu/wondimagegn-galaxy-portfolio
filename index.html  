@@ -50,20 +50,7 @@
             </p>
         </section>
 
-        <section id="projects" class="container">
-            <h2>Projects</h2>
-            <div class="project">
-                <h3>Online Payment Management System</h3>
-                <p>Developed the front-end using React.js and React Native, and the back-end using Node.js and Express.</p>
-                <a href="projects/project1.html">View Project</a>
-            </div>
-            <div class="project">
-                <h3>2021 Ethiopian General Election Management System</h3>
-                <p>Worked as a backend developer using Django and front-end developer using React.js.</p>
-                <a href="projects/project2.html">View Project</a>
-            </div>
-            <!-- Add more projects here -->
-        </section>
+        
 
         <section id="skills" class="container">
             <h2>Skills</h2>
