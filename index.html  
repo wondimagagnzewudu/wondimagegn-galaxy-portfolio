@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wondimagegn Zewudu - Galaxy Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100%;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Three.js Galaxy Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r146/three.min.js"></script>
+    <script src="scripts/galaxy.js"></script>
+
+    <!-- Portfolio Content -->
+    <div class="content">
+        <header>
+            <div class="container">
+                <img src="assets/profile.jpg" alt="Wondimagegn Zewudu" class="profile-img">
+                <h1>Wondimagegn Zewudu</h1>
+                <p>Senior Software Developer | Full Stack Developer | Cybersecurity Enthusiast</p>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section id="about" class="container">
+            <h2>About Me</h2>
+            <p>
+                I have a solid background spanning 6+ years in project management and web development. I have honed my skills using popular technologies such as Node.js, React.js, and Python, as well as gained expertise in the field of cybersecurity.
+            </p>
+            <p>
+                My academic background includes a Master's degree in Computer Science and Engineering and a Bachelor's degree in Software Engineering, both from the Addis Ababa Science and Technology University (ASTU). Additionally, I have undergone specialized cybersecurity training via a scholarship program at Iserial, Ariel University.
+            </p>
+        </section>
+
+        
+
+        <section id="skills" class="container">
+            <h2>Skills</h2>
+            <ul>
+                <li>Node.js</li>
+                <li>React.js</li>
+                <li>Python</li>
+                <li>Django</li>
+                <li>Cybersecurity</li>
+                <li>SQL</li>
+                <li>Git</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="container">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:wondeis2018@gmail.com">wondeis2018@gmail.com</a></p>
+            <p>Phone: <a href="tel:+251923704254">+251 923 704 254</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/wondimagegn-zewudu/">Wondimagegn Zewudu</a></p>
+            <p>GitHub: <a href="https://github.com/wondimagagnzewudu/">wondimagagnzewudu</a></p>
+        </section>
+
+        <footer>
+            <p>&copy; 2023 Wondimagegn Zewudu. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
